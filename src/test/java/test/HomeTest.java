@@ -35,8 +35,8 @@ public class HomeTest extends BaseTest {
 	@Test
 	public void addCustomer() throws InterruptedException {
 		homePage.selectVersionTheme_v4();
-		homePage.addCustomer("Anderosn", "Mann", "morais", "051-99886677", "", "5th Ave", "New York", "NY", "94510344",
-				"USA", "15000");
+		homePage.addCustomer("Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
+				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200");
 
 		esperar(2000);
 
