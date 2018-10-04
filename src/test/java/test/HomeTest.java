@@ -3,7 +3,6 @@ package test;
 import static core.DriverFactory.getDriver;
 import static org.testng.Assert.assertEquals;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -52,8 +51,8 @@ public class HomeTest extends BaseTest {
 		System.out.println(homePage.pegaTexto());
 		assertEquals("Are you sure that you want to delete this record?", homePage.pegaTexto());
 
-		esperar(2000);
-		
+		esperar(2000);// pode apagar é somente para imprimir
+
 		System.out.println(homePage.pegaTextoUltimaMSG());
 		esperar(2000);
 

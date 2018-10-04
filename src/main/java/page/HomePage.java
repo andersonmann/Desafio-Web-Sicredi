@@ -35,28 +35,27 @@ public class HomePage extends BasePage {
 
 	public void deleteCustomer() throws InterruptedException {
 		// dsl.click(By.className("btn-group"));
-		
 
 		dsl.click(By.xpath("//*[@id=\"gcrud-search-form\"]/div[2]/table/tbody/tr/td[2]/div[1]/div/button"));
 		dsl.click(By.cssSelector(
 				"#gcrud-search-form > div.scroll-if-required > table > tbody > tr > td:nth-child(2) > div.only-desktops > div > div > a.delete-row.dropdown-item > span"));
-		
-		//tambem funciona
+
+		// tambem funciona
 		// dsl.click(By.cssSelector(
 		// "body > div.container-fluid.gc-container > div.row >
 		// div.delete-confirmation.modal.fade.in.show > div > div > div.modal-footer >
 		// button.btn.btn-danger.delete-confirmation-button"));
-		
+
 		// clica botao DELETE
 		dsl.click(By.xpath("//html/body/div[2]/div[2]/div[2]/div/div/div[3]/button[2]"));
-		
-		
+
 	}
-	
+
 	public String pegaTextoUltimaMSG() {
-		return dsl.getText(By.cssSelector("body > div.alert.alert-success.growl-animated.animated.bounceInDown > span:nth-child(4) > p"));
+		return dsl.getText(By.cssSelector(
+				"body > div.alert.alert-success.growl-animated.animated.bounceInDown > span:nth-child(4) > p"));
 	}
-	
+
 	public String pegaTexto() {
 		return dsl.getText(By.cssSelector(
 				"body > div.container-fluid.gc-container > div.row > div.delete-confirmation.modal.fade.in.show > div > div > div.modal-body > p"));
@@ -103,11 +102,11 @@ public class HomePage extends BasePage {
 		// consulta LEO
 		// document.querySelector("#report-success").children[0].childNodes[0].data
 
-		WebElement element = getDriver().findElement(By.cssSelector("#report-success > p"));
+		// WebElement element = getDriver().findElement(By.cssSelector("#report-success
+		// > p"));
 
 		return dsl.executeJS("document.querySelector(\"#report-success\").children[0].childNodes[0].data).value");
 
 	}
 
-	
 }
