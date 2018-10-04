@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -174,6 +175,12 @@ public class DSL {
 		combo.selectByIndex(8);
 	
 	}
+	
+	public void selecionarCombo3(By by, String valor) {
+		WebElement element = getDriver().findElement(by);
+		Select combo = new Select(element);
+		combo.selectByVisibleText(valor);
+	}
 
 	public void deselecionarCombo(String id, String valor) {
 		WebElement element = getDriver().findElement(By.id(id));
@@ -315,8 +322,24 @@ public class DSL {
 
 	/********* Pages ************/
 
-	public String retornaPaginaAtual() {
+	public String actualPage() {
 		return getDriver().getCurrentUrl();
+	}
+	
+//	public Object executarJS(String cmd, Object... param) {
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		return js.executeScript(cmd, param);
+//	}
+	
+//	public String executeJS(String cmd, Object... param) {
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		return (String) js.executeScript(cmd, param);
+//	}
+	
+	
+	public String executeJS(String cmd) {
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		return (String) js.executeScript(cmd);
 	}
 
 }
