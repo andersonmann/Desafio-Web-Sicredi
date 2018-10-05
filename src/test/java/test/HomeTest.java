@@ -7,12 +7,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.BaseTest;
-import page.CustomerPage;
 import page.HomePage;
 
 public class HomeTest extends BaseTest {
 	private HomePage homePage;
-	private CustomerPage customerPage;
 
 	private static final String urlHome = Messages.getString("HomeTest.0");
 	private static final String urlTheme_V4 = Messages.getString("HomeTest.1");
@@ -20,7 +18,6 @@ public class HomeTest extends BaseTest {
 	@BeforeMethod
 	public void beforeMethod() {
 		homePage = new HomePage();
-		customerPage = new CustomerPage();
 		getDriver().get(Messages.getString("HomeTest.2"));
 	}
 
@@ -34,16 +31,4 @@ public class HomeTest extends BaseTest {
 		homePage.selectVersionTheme_v4();
 		assertEquals(urlTheme_V4, homePage.getActualPage());
 	}
-
-	@Test
-	public void deleteCustomer() throws InterruptedException {
-		customerPage.deleteCustomer("Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
-				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200", "Teste Sicredi");
-		assertEquals("Are you sure that you want to delete this record?", homePage.pegaTexto());
-
-		// String message = homePage.pegaTextoUltimaMSG(); message
-		assertEquals("Your data has been successfully deleted from the database.", homePage.pegaTextoUltimaMSG());
-
-	}
-
 }

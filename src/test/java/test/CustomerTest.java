@@ -13,24 +13,28 @@ import page.HomePage;
 public class CustomerTest extends BaseTest {
 	private HomePage homePage;
 	private CustomerPage customerPage;
-	private static final String urlHome = "https://www.grocerycrud.com/demo/bootstrap_theme";
 
 	@BeforeMethod
 	public void beforeMethod() {
 		homePage = new HomePage();
 		customerPage = new CustomerPage();
-		getDriver().get(urlHome);
+		getDriver().get(Messages.getString("HomeTest.0"));
 	}
 
 	@Test
 	public void addCustomer() throws InterruptedException {
 		customerPage.addCustomer("Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
 				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200");
-
-		esperar(3000);
-		assertEquals(homePage.getText(), "Your data has been successfully stored into the database.");
-		//equals(js.executeScript("document.querySelector(\"#report-success\").children[0].childNodes[0].data","Your data has been successfully stored into the database."));
+		assertEquals(customerPage.getMessageCreationSuccess(),
+				"Your data has been successfully stored into the database");
 	}
-	
 
+	@Test
+	public void deleteCustomer() throws InterruptedException {
+		customerPage.deleteCustomer("Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
+				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200", "Teste Sicredi");
+		assertEquals("Are you sure that you want to delete this record?", homePage.getMessageDeleteConfirmation());
+		// String message = homePage.pegaTextoUltimaMSG(); message
+		assertEquals("Your data has been successfully deleted from the database.", homePage.getMessageSuccess());
+	}
 }

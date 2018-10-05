@@ -6,7 +6,7 @@ package core;
 import static core.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,35 +19,40 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DSL {
 
-	/********* TextField e TextArea ************/
-
 	/**
 	 * Find an element and perform writing in the field
 	 * 
 	 * 
-	 * @param By    Type of locator used for search (Ex: id, name,
-	 *              xpath,cssSelector)
-	 * @param texto Text to be written in the field
+	 * @param By     Type of locator used for search (Ex: id, name,
+	 *               xpath,cssSelector)
+	 * @param String Text to be written in the field
 	 */
 
-	public void write(By by, String texto) throws NoSuchElementException {
+	public void write(By by, String value) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
-			getDriver().findElement(by).sendKeys(texto);
+			getDriver().findElement(by).sendKeys(value);
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
 		}
 	}
 
-	/********* Button ************/
+	/**
+	 * Find search field and writing
+	 * 
+	 * @param String Text to be written in the field
+	 */
+	public void writeFieldSearch(String value) {
+		WebElement textbox = getDriver().findElement(By.name("search"));
+		textbox.sendKeys(value, Keys.ENTER);
+	}
 
 	/**
 	 * Find an element and click
 	 * 
 	 * @param By Type of locator used for search (Ex: id, name, xpath,cssSelector)
 	 */
-
 	public void click(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 15);
@@ -62,37 +67,39 @@ public class DSL {
 		click(By.xpath("//*[@text='" + texto + "']"));
 	}
 
-	/********* Obter valor campo ************/
-
-	public String obterValueElemento(String id) {
-		return getDriver().findElement(By.id(id)).getAttribute("value");
-	}
-
-	/********* Combo ************/
-
-	public void selecionarCombo(By by, String valor) {
+	/**
+	 * Find an element and select
+	 * 
+	 * 
+	 * @param By     Type of locator used for search (Ex: id, name,
+	 *               xpath,cssSelector)
+	 * @param String Text to be select
+	 */
+	public void selectOption(By by, String valor) {
 		WebElement element = getDriver().findElement(by);
 		Select combo = new Select(element);
-		// combo.selectByVisibleText(valor);
 		combo.selectByValue(valor);
 	}
 
-	public void selecionarCombo2(By by) {
+	/**
+	 * Find an element and select
+	 * 
+	 * 
+	 * @param By      Type of locator used for search (Ex: id, name,
+	 *                xpath,cssSelector)
+	 * @param Integer to be select
+	 */
+	public void selectOptionByIndex(By by) {
 		WebElement element = getDriver().findElement(by);
 		Select combo = new Select(element);
-		// combo.selectByVisibleText(valor);
 		combo.selectByIndex(8);
-
 	}
 
-	public void selecionarCombo3(By by, String valor) {
-		WebElement element = getDriver().findElement(by);
-		Select combo = new Select(element);
-		combo.selectByVisibleText(valor);
-	}
-
-	/********* Texts ************/
-
+	/**
+	 * Find an element and get the message
+	 * 
+	 * @param By Type of locator used for search (Ex: id, name, xpath,cssSelector)
+	 */
 	public String getText(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
@@ -104,7 +111,7 @@ public class DSL {
 		}
 	}
 
-	/********* Frames e Janelas ************/
+	/********* Frames ************/
 
 	public void enterFrame(String id) {
 		getDriver().switchTo().frame(id);
@@ -133,20 +140,4 @@ public class DSL {
 	public String actualPage() {
 		return getDriver().getCurrentUrl();
 	}
-
-//	public Object executarJS(String cmd, Object... param) {
-//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-//		return js.executeScript(cmd, param);
-//	}
-
-//	public String executeJS(String cmd, Object... param) {
-//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-//		return (String) js.executeScript(cmd, param);
-//	}
-
-	public String executeJS(String cmd) {
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		return (String) js.executeScript(cmd);
-	}
-
 }
