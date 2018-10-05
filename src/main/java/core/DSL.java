@@ -32,42 +32,14 @@ public class DSL {
 	/********* TextField e TextArea ************/
 
 	/**
-	 * Encontra um elemento e realiza a escrita no campo
+	 * Find an element and perform writing in the field
 	 * 
 	 * 
-	 * @param By
-	 *            Tipo do locator utilizado para a busca (Ex: id, name,
-	 *            xpath,cssSelector)
-	 * @param texto
-	 *            Texto que serï¿½ escrito no campo *
+	 * @param By    Type of locator used for search (Ex: id, name,
+	 *              xpath,cssSelector)
+	 * @param texto Text to be written in the field
 	 */
-	public void escrever(final By by, String texto) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver()).withTimeout(30, TimeUnit.SECONDS)
-				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
-		WebElement waitingElement = wait.until(new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {
-				return driver.findElement(by);
-			}
-		});
-		waitingElement.sendKeys(texto);
-	}
 
-	public void escreverById(String id_campo, String texto) {
-		escrever(By.id(id_campo), texto);
-	}
-
-	public void escreverByName(String nome_campo, String texto) {
-		escrever(By.name(nome_campo), texto);
-	}
-
-	public void escreverByXpath(String xpath_campo, String texto) {
-		escrever(By.xpath(xpath_campo), texto);
-	}
-
-	public void escreverByCssLocator(String css_locator, String texto) {
-		escrever(By.xpath(css_locator), texto);
-	}
-	
 	public void write(By by, String texto) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
@@ -78,32 +50,14 @@ public class DSL {
 		}
 	}
 
-	/********* Botao ************/
+	/********* Button ************/
 
 	/**
-	 * Encontra um elemento e clica. *
+	 * Find an element and click
 	 * 
-	 * @param By
-	 *            Tipo do locator utilizado para a busca (Ex: id, name,
-	 *            xpath,cssSelector)
+	 * @param By Type of locator used for search (Ex: id, name, xpath,cssSelector)
 	 */
 
-	public void clicarBotao(final By by) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver()).withTimeout(30, TimeUnit.SECONDS)
-				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
-		WebElement waitingElement = wait.until(new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {
-				return driver.findElement(by);
-			}
-		});
-		waitingElement.click();
-	}
-
-	public void clicarBotaoById(String id) {
-		clicarBotao(By.id(id));
-	}
-	
-	
 	public void click(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 15);
@@ -118,18 +72,7 @@ public class DSL {
 		click(By.xpath("//*[@text='" + texto + "']"));
 	}
 
-
-	public void clicarBotaoByXpath(final String xpath) {
-		clicarBotao(By.xpath(xpath));
-	}
-
-	public void clicarBotaoByClass(String classe) {
-		clicarBotao(By.className(classe));
-	}
-
-	public void clicarCssSelector(final String selector) {
-		clicarBotao(By.cssSelector(selector));
-	}
+	
 
 	/********* Obter valor campo ************/
 
@@ -137,9 +80,7 @@ public class DSL {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
 
-	public String obterValorCampo(String id_campo) {
-		return getDriver().findElement(By.id(id_campo)).getAttribute("value");
-	}
+	
 
 	/********* Radio e Check ************/
 
@@ -151,31 +92,26 @@ public class DSL {
 		return getDriver().findElement(By.id(id)).isSelected();
 	}
 
-	public void clicarCheck(String id) {
-		getDriver().findElement(By.id(id)).click();
-	}
+	
 
-	public boolean isCheckMarcado(String id) {
-		return getDriver().findElement(By.id(id)).isSelected();
-	}
 
 	/********* Combo ************/
 
 	public void selecionarCombo(By by, String valor) {
 		WebElement element = getDriver().findElement(by);
 		Select combo = new Select(element);
-		//combo.selectByVisibleText(valor);
+		// combo.selectByVisibleText(valor);
 		combo.selectByValue(valor);
 	}
-	
+
 	public void selecionarCombo2(By by) {
 		WebElement element = getDriver().findElement(by);
 		Select combo = new Select(element);
-		//combo.selectByVisibleText(valor);
+		// combo.selectByVisibleText(valor);
 		combo.selectByIndex(8);
-	
+
 	}
-	
+
 	public void selecionarCombo3(By by, String valor) {
 		WebElement element = getDriver().findElement(by);
 		Select combo = new Select(element);
@@ -236,34 +172,12 @@ public class DSL {
 	}
 
 	/********* Textos ************/
-
-	public String obterTexto(final By by) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(getDriver()).withTimeout(30, TimeUnit.SECONDS)
-				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
-		WebElement waitingElement = wait.until(new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {
-				return driver.findElement(by);
-			}
-		});
-		return waitingElement.getText();
-	}
-
-	public String obterTextoById(String id) {
-		return obterTexto(By.id(id));
-	}
-
-	public String obterTextoByXpath(String xpath) {
-		return obterTexto(By.xpath(xpath));
-	}
-
-	public String obterTextoByClassName(String className) {
-		return obterTexto(By.className(className));
-	}
 	
 	public String getText(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-			wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			//wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			return getDriver().findElement(by).getText();
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
@@ -307,8 +221,9 @@ public class DSL {
 		getDriver().switchTo().defaultContent();
 	}
 
-	public void trocarJanela(String id) {
-		getDriver().switchTo().window(id);
+	public void switchTo(int value) {		
+		getDriver().switchTo().window((String) getDriver().getWindowHandles().toArray()[value]);
+
 	}
 
 	public boolean isElementPresent(By locatorKey) {
@@ -325,18 +240,17 @@ public class DSL {
 	public String actualPage() {
 		return getDriver().getCurrentUrl();
 	}
-	
+
 //	public Object executarJS(String cmd, Object... param) {
 //		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		return js.executeScript(cmd, param);
 //	}
-	
+
 //	public String executeJS(String cmd, Object... param) {
 //		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		return (String) js.executeScript(cmd, param);
 //	}
-	
-	
+
 	public String executeJS(String cmd) {
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		return (String) js.executeScript(cmd);

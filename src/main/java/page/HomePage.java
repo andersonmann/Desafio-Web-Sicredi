@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void clickButtonAddCustomer() {
-		dsl.click(By.cssSelector("#gcrud-search-form > div.header-tools > div.floatL.t5 > a"));
+		dsl.click(By.cssSelector("#gcrud-search-form > div.header-tools > div.floatL.t5 > a"));		
 	}
 
 	public void clickButtonSearch() {
@@ -28,26 +28,20 @@ public class HomePage extends BasePage {
 	}
 
 	public void fillSearch(String text) {
-
 		WebElement textbox = getDriver().findElement(By.name("search"));
 		textbox.sendKeys(text, Keys.ENTER);
 	}
 
 	public void deleteCustomer() throws InterruptedException {
-		// dsl.click(By.className("btn-group"));
-
-		dsl.click(By.xpath("//*[@id=\"gcrud-search-form\"]/div[2]/table/tbody/tr/td[2]/div[1]/div/button"));
-		dsl.click(By.cssSelector(
-				"#gcrud-search-form > div.scroll-if-required > table > tbody > tr > td:nth-child(2) > div.only-desktops > div > div > a.delete-row.dropdown-item > span"));
-
-		// tambem funciona
-		// dsl.click(By.cssSelector(
-		// "body > div.container-fluid.gc-container > div.row >
-		// div.delete-confirmation.modal.fade.in.show > div > div > div.modal-footer >
-		// button.btn.btn-danger.delete-confirmation-button"));
-
+		//BOTAO MORE		
+		dsl.click(By.xpath("//tbody//tr[1]//td[2]//div[1]//div[1]//button[1]"));
+		//BOTAO DELETE
+		dsl.click(By.xpath("//div[@class='btn-group open']//a[@title='Delete']"));	
+		dsl.switchTo(0);
 		// clica botao DELETE
-		dsl.click(By.xpath("//html/body/div[2]/div[2]/div[2]/div/div/div[3]/button[2]"));
+		//dsl.click(By.xpath("//html/body/div[2]/div[2]/div[2]/div/div/div[3]/button[2]"));
+		dsl.click(By.xpath("//div[@class='delete-confirmation modal fade in show']//button[@type='button'][contains(text(),'Delete')]"));		
+		//System.out.println(getDriver().getWindowHandles());
 
 	}
 
@@ -62,6 +56,9 @@ public class HomePage extends BasePage {
 	}
 
 	public String getText() {
+		//document.querySelector("#report-success").children[0].childNodes[0].data - consulta do LEO
+		
+		
 		// return dsl.getText(By.xpath("//*[@id=\"report-success\"]/p/text()[1]")); //
 		// NAO ENCONTRADO
 		// return dsl.getText(By.id("report-success"));

@@ -15,15 +15,11 @@ public class CustomerPage extends BasePage {
 	private HomePage home = new HomePage();
 
 	public void addCustomer(String name, String lastName, String contactName, String phone, String address1,
-			String address2, String city, String state, String postalCode, String country, String creditLimit) {
-		
+			String address2, String city, String state, String postalCode, String country, String creditLimit) {		
 		home.selectVersionTheme_v4();
-
 		home.clickButtonAddCustomer();
-
 		fillPersonalInformations(name, lastName, contactName, phone, address1, address2, city, state, postalCode,
-				country, creditLimit);
-		
+				country, creditLimit);		
 		employerSelect();
 		clickButtonSave();
 	}
@@ -42,7 +38,6 @@ public class CustomerPage extends BasePage {
 		dsl.write(By.id("field-postalCode"), postalCode);
 		dsl.write(By.id("field-country"), country);
 		dsl.write(By.id("field-creditLimit"), creditLimit);
-
 	}
 
 	public void employerSelect() {
@@ -67,8 +62,6 @@ public class CustomerPage extends BasePage {
 		home.clickButtonSearch();
 		home.fillSearch(textSearch);			
 		Thread.sleep(2000);
-		home.deleteCustomer();		
-
+		home.deleteCustomer();
 	}
-
 }

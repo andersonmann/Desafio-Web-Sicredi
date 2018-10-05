@@ -29,8 +29,7 @@ public class CustomerTest extends BaseTest {
 
 		esperar(3000);
 		assertEquals(homePage.getText(), "Your data has been successfully stored into the database.");
-//		equals(js.executeScript("document.querySelector(\"#report-success\").children[0].childNodes[0].data",
-//				"Your data has been successfully stored into the database."));
+		//equals(js.executeScript("document.querySelector(\"#report-success\").children[0].childNodes[0].data","Your data has been successfully stored into the database."));
 	}
 	
 
