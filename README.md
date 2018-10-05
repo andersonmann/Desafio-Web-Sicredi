@@ -57,7 +57,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [SELENIUM WEBDRIVER](http://seleniumwebdriver.org/selenium-webdriver/) - The web framework used
+* [SELENIUM WEBDRIVER](http://seleniumwebdriver.org/selenium-webdriver/) - The automation framework used
 * [MAVEN](https://maven.apache.org/) - Dependency Management
 * [JAVA](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html/) - Programing language
 
