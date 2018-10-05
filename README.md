@@ -1,6 +1,6 @@
 # Prove Sicredi selection 
 
-One Paragraph of project description goes here
+This code was developed to selection proccess of Sicredi
 
 ## Getting Started
 
