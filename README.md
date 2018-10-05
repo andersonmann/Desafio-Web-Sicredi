@@ -20,13 +20,14 @@ These instructions will get you a copy of the project up and running on your loc
 To running this project, you need do it the following steps
 
 ```
-Give the example
-```
-
-And repeat
+Create a new maven project and import this code.
 
 ```
-until finished
+
+Or 
+
+```
+Import this project.
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
@@ -60,10 +61,6 @@ Add additional notes about how to deploy this on a live system
 * [SELENIUM WEBDRIVER](http://seleniumwebdriver.org/selenium-webdriver/) - The automation framework used
 * [MAVEN](https://maven.apache.org/) - Dependency Management
 * [JAVA](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html/) - Programing language
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
