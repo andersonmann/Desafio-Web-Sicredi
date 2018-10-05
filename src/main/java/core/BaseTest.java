@@ -14,11 +14,11 @@ import org.testng.annotations.Listeners;
 public class BaseTest {
 
 	@AfterClass
-	public static void finalizaClasse() {
+	public static void finalizeClass() {
 		DriverFactory.killDriver();
 	}
 
-	public void esperar(long tempo) {
+	public void time(long tempo) {
 		try {
 			Thread.sleep(tempo);
 		} catch (InterruptedException e) {
