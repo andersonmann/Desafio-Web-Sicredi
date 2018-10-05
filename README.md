@@ -8,6 +8,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
+* Java JRE
 * Java JDK
+* Google Chrome
 * Selenium Webdriver
 * Chrome driver
+* IDE
+
+### Installing
+
+To running this project, you need do it the following steps
+
+```
+import the project from github
+```
+
+And repeat
+
+```
+until finished
+```
