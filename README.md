@@ -1,6 +1,6 @@
 # Prove Sicredi selection 
 
-This code was developed to selection proccess of Sicredi
+This code was developed to the selection of Sicredi.
 
 ## Getting Started
 
@@ -8,4 +8,4 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+* [Java JDK]
