@@ -1,10 +1,6 @@
 package page;
 
-import static core.DriverFactory.getDriver;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
 import core.BasePage;
 
@@ -29,8 +25,6 @@ public class HomePage extends BasePage {
 
 	public void fillSearch(String text) {
 		dsl.writeFieldSearch(text);
-//		WebElement textbox = getDriver().findElement(By.name("search"));
-//		textbox.sendKeys(text, Keys.ENTER);
 	}
 
 	public void deleteCustomer() throws InterruptedException {

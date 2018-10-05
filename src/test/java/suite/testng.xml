@@ -3,8 +3,9 @@
 	configfailurepolicy="continue" verbose="1">
 	<test name="Regression tests">
 		<classes>
-			<class name="test.HomeTest" />
-		<!--	<class name="test.CustomerTest" /> -->
+			<!-- class name="test.HomeTest" /> -->
+			
+			<class name="test.CustomerTest" />
 		</classes>
 	</test>
 </suite>

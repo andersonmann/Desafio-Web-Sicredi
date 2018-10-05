@@ -11,6 +11,7 @@ import page.CustomerPage;
 import page.HomePage;
 
 public class CustomerTest extends BaseTest {
+	private static String url = "https://www.grocerycrud.com/demo/bootstrap_theme";
 	private HomePage homePage;
 	private CustomerPage customerPage;
 
@@ -18,7 +19,7 @@ public class CustomerTest extends BaseTest {
 	public void beforeMethod() {
 		homePage = new HomePage();
 		customerPage = new CustomerPage();
-		getDriver().get(Messages.getString("HomeTest.0"));
+		getDriver().get(url);
 	}
 
 	@Test
@@ -34,7 +35,6 @@ public class CustomerTest extends BaseTest {
 		customerPage.deleteCustomer("Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
 				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200", "Teste Sicredi");
 		assertEquals("Are you sure that you want to delete this record?", homePage.getMessageDeleteConfirmation());
-		// String message = homePage.pegaTextoUltimaMSG(); message
 		assertEquals("Your data has been successfully deleted from the database.", homePage.getMessageSuccess());
 	}
 }
