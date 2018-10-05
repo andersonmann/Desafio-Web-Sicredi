@@ -14,14 +14,14 @@ public class HomeTest extends BaseTest {
 	private HomePage homePage;
 	private CustomerPage customerPage;
 
-	private static final String urlHome = "https://www.grocerycrud.com/demo/bootstrap_theme";
-	private static final String urlTheme_V4 = "https://www.grocerycrud.com/demo/bootstrap_theme_v4";
+	private static final String urlHome = Messages.getString("HomeTest.0");
+	private static final String urlTheme_V4 = Messages.getString("HomeTest.1");
 
 	@BeforeMethod
 	public void beforeMethod() {
 		homePage = new HomePage();
 		customerPage = new CustomerPage();
-		getDriver().get("https://www.grocerycrud.com/demo/bootstrap_theme");
+		getDriver().get(Messages.getString("HomeTest.2"));
 	}
 
 	@Test
@@ -33,13 +33,6 @@ public class HomeTest extends BaseTest {
 	public void changeVersionToTheme_V4() {
 		homePage.selectVersionTheme_v4();
 		assertEquals(urlTheme_V4, homePage.getActualPage());
-	}
-
-	@Test
-	public void testeLupa() {
-		homePage.selectVersionTheme_v4();
-		homePage.clickButtonSearch();
-		homePage.fillSearch("Teste Sicredi");
 	}
 
 	@Test

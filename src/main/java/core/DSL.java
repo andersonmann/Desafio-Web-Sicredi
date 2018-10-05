@@ -5,23 +5,13 @@ package core;
 
 import static core.DriverFactory.getDriver;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.base.Function;
 
 /**
  * @author Anderson
@@ -72,28 +62,11 @@ public class DSL {
 		click(By.xpath("//*[@text='" + texto + "']"));
 	}
 
-	
-
 	/********* Obter valor campo ************/
 
 	public String obterValueElemento(String id) {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
-
-	
-
-	/********* Radio e Check ************/
-
-	public void clicarRadio(String id) {
-		getDriver().findElement(By.id(id)).click();
-	}
-
-	public boolean isRadioMarcado(String id) {
-		return getDriver().findElement(By.id(id)).isSelected();
-	}
-
-	
-
 
 	/********* Combo ************/
 
@@ -118,65 +91,12 @@ public class DSL {
 		combo.selectByVisibleText(valor);
 	}
 
-	public void deselecionarCombo(String id, String valor) {
-		WebElement element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);
-		combo.deselectByVisibleText(valor);
-	}
+	/********* Texts ************/
 
-	public String obterValorCombo(String id) {
-		WebElement element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);
-		return combo.getFirstSelectedOption().getText();
-	}
-
-	public List<String> obterValoresCombo(String id) {
-		WebElement element = getDriver().findElement(By.id("select"));
-		Select combo = new Select(element);
-		List<WebElement> allSelectedOptions = combo.getAllSelectedOptions();
-		List<String> valores = new ArrayList<String>();
-		for (WebElement opcao : allSelectedOptions) {
-			valores.add(opcao.getText());
-		}
-		return valores;
-	}
-
-	public int obterQuantidadeOpcoesCombo(String id) {
-		WebElement element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);
-		List<WebElement> options = combo.getOptions();
-		return options.size();
-	}
-
-	public boolean verificarOpcaoCombo(String id, String opcao) {
-		WebElement element = getDriver().findElement(By.id(id));
-		Select combo = new Select(element);
-		List<WebElement> options = combo.getOptions();
-		for (WebElement option : options) {
-			if (option.getText().equals(opcao)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/********* Link ************/
-
-	public void clicarLink(String link) {
-		getDriver().findElement(By.linkText(link)).click();
-	}
-
-	public void clicarLinkByXpath(String xpath) {
-		getDriver().findElement(By.xpath(xpath)).click();
-
-	}
-
-	/********* Textos ************/
-	
 	public String getText(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-			//wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			// wait.until(ExpectedConditions.presenceOfElementLocated(by));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			return getDriver().findElement(by).getText();
 		} catch (Exception e) {
@@ -184,44 +104,17 @@ public class DSL {
 		}
 	}
 
-	/********* Alerts ************/
-
-	public String alertaObterTexto() {
-		Alert alert = getDriver().switchTo().alert();
-		return alert.getText();
-	}
-
-	public String alertaObterTextoEAceita() {
-		Alert alert = getDriver().switchTo().alert();
-		String valor = alert.getText();
-		alert.accept();
-		return valor;
-	}
-
-	public String alertaObterTextoENega() {
-		Alert alert = getDriver().switchTo().alert();
-		String valor = alert.getText();
-		alert.dismiss();
-		return valor;
-	}
-
-	public void alertaEscrever(String valor) {
-		Alert alert = getDriver().switchTo().alert();
-		alert.sendKeys(valor);
-		alert.accept();
-	}
-
 	/********* Frames e Janelas ************/
 
-	public void entrarFrame(String id) {
+	public void enterFrame(String id) {
 		getDriver().switchTo().frame(id);
 	}
 
-	public void sairFrame() {
+	public void exitFrame() {
 		getDriver().switchTo().defaultContent();
 	}
 
-	public void switchTo(int value) {		
+	public void switchTo(int value) {
 		getDriver().switchTo().window((String) getDriver().getWindowHandles().toArray()[value]);
 
 	}
