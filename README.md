@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-To running this project, you need do it the following steps
+To running this project, you need do it the following steps:
 
 ```
 Create a new maven project and import this code.
@@ -28,13 +28,15 @@ Or
 
 ```
 Import this project.
+
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-You could execute the Suite test, located at package "suite"
+You could execute the suite test (test.xml), located at package "suite", or execute the test class, located at package "test".
+You can also running parallell tests, to this you must change the parameter thread-count, on testng.xlm
 
 ### Break down into end to end tests
 
