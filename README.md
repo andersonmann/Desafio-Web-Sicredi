@@ -46,7 +46,7 @@ The tests created simulate a user creating a register, searching and deleting th
 Were explored different types of locators and strategies.
 
 ```
-Give an example
+Creation the customer register using differents informations.
 ```
 
 ### Design Pattern
