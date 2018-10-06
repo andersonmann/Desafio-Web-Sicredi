@@ -23,11 +23,11 @@ public class CustomerTest extends BaseTest {
 		getDriver().get(url);
 	}
 
-	@DataProvider(name = "dataProvider")
+	/*@DataProvider(name = "dataProvider")
 	public static Object[][] credentials() {
 		return new Object[][] { { "Teste Sicredi", "Teste", "Anderson Mann", "51 9999-9999", "Av Assis Brasil, 3970",
 				"Torre D", "Porto Alegre", "RS", "91000-000", "BRASIL", "200" } };
-	}
+	}*/
 
 	@Test(dataProvider = "dataProvider")
 	public void addCustomer(String name, String lastName, String contactFirstName, String phone, String addressLine1,
