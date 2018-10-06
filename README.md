@@ -54,6 +54,9 @@ verify that all dependencies of the project have been downloaded.
 You could execute the suite test (testng.xml), located at package "suite", or execute the test class, located at package "test".
 You can also running parallell tests, to this you must change the parameter thread-count, on testng.xlm
 
+After the test execution, are create screenshots files, to evidence the result. 
+They are stored at folder called screenshots.
+
 ### Purpose of the tests
 
 The tests created simulate a user creating a register, searching and deleting this register.
