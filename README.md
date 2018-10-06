@@ -1,4 +1,4 @@
-# Prove Sicredi selection 
+# Technical proof sicredi 
 
 This code was developed to the selection of Sicredi.
 
@@ -85,10 +85,8 @@ WAas used [Sourcetree](https://www.sourcetreeapp.com//) for versioning.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU License.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* With this tool you do not have to develop methods to perform various interactions with elements and web components, saving time to perform more productive tasks.
