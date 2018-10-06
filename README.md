@@ -46,10 +46,14 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
+The above design patterns are used at this project
 
 ```
-Give an example
+DSL
+```
+
+```
+Factory
 ```
 
 ## Deployment
