@@ -21,26 +21,23 @@ To running this project, you need do it the following steps:
 
 ```
 Create a new maven project and import this code.
-
 ```
 
 Or 
 
 ```
 Import this project.
-
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-You could execute the suite test (test.xml), located at package "suite", or execute the test class, located at package "test".
+You could execute the suite test (testng.xml), located at package "suite", or execute the test class, located at package "test".
 You can also running parallell tests, to this you must change the parameter thread-count, on testng.xlm
 
-### Break down into end to end tests
+### Purpose of the tests
 
-Explain what these tests test and why
+The tests created simulate a user creating a register, searching and deleting this register.
+Were explored different types of locators and strategies.
 
 ```
 Give an example
@@ -73,8 +70,10 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [SELENIUM WEBDRIVER](http://seleniumwebdriver.org/selenium-webdriver/) - The automation framework used
+* [TestNG](https://testng.org/doc/documentation-main.html/) - The automation framework used
 * [MAVEN](https://maven.apache.org/) - Dependency Management
 * [JAVA](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html/) - Programing language
+
 
 ## Versioning
 
