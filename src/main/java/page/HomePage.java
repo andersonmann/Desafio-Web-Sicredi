@@ -28,6 +28,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void deleteCustomer() throws InterruptedException {
+		Thread.sleep(1500);
 		dsl.click(By.xpath("//tbody//tr[1]//td[2]//div[1]//div[1]//button[1]"));
 		dsl.click(By.xpath("//div[@class='btn-group open']//a[@title='Delete']"));
 		dsl.switchTo(0);

@@ -67,7 +67,6 @@ public class CustomerPage extends BasePage {
 		clickButtonGoBackToList();
 		home.clickButtonSearch();
 		home.fillSearch(textSearch);
-		Thread.sleep(2000);
 		home.deleteCustomer();
 	}
 

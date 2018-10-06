@@ -56,7 +56,7 @@ public class DSL {
 	public void click(By by) throws NoSuchElementException {
 		try {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 15);
-			wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			wait.until(ExpectedConditions.presenceOfElementLocated(by));			
 			getDriver().findElement(by).click();
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
