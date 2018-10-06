@@ -20,13 +20,27 @@ These instructions will get you a copy of the project up and running on your loc
 To running this project, you need do it the following steps:
 
 ```
-Create a new maven project and import this code.
+At Eclipse IDE
 ```
 
-Or 
+```
+Access File > Import...
+```
 
 ```
-Import this project.
+Projects from Git
+```
+
+```
+Select a wizard to use importing projects choose the option Import as general project
+```
+
+```
+Right click on the project and choose an option
+```
+
+```
+Configure > Convert to Maven Project
 ```
 
 Double check
