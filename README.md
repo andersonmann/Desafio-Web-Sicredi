@@ -29,6 +29,12 @@ Or
 Import this project.
 ```
 
+Double check
+
+```
+verify that all dependencies of the project have been downloaded.
+```
+
 ## Running the tests
 
 You could execute the suite test (testng.xml), located at package "suite", or execute the test class, located at package "test".
@@ -65,7 +71,7 @@ Strategy
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+You just must execute the test classes.
 
 ## Built With
 
