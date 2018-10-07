@@ -16,12 +16,12 @@ public class CustomerTest extends BaseTest {
 	private HomePage homePage;
 	private CustomerPage customerPage;
 
-	/*@BeforeMethod
+	@BeforeMethod
 	public void beforeMethod() {
 		homePage = new HomePage();
 		customerPage = new CustomerPage();
 		getDriver().get(url);
-	}*/
+	}
 
 	@DataProvider(name = "dataProvider")
 	public static Object[][] credentials() {
