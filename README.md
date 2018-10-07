@@ -20,13 +20,27 @@ These instructions will get you a copy of the project up and running on your loc
 To running this project, you need do it the following steps:
 
 ```
-Create a new maven project and import this code.
+At Eclipse IDE
 ```
 
-Or 
+```
+Access File > Import...
+```
 
 ```
-Import this project.
+Projects from Git
+```
+
+```
+Select a wizard to use importing projects choose the option Import as general project
+```
+
+```
+Right click on the project and choose an option
+```
+
+```
+Configure > Convert to Maven Project
 ```
 
 Double check
@@ -39,6 +53,12 @@ verify that all dependencies of the project have been downloaded.
 
 You could execute the suite test (testng.xml), located at package "suite", or execute the test class, located at package "test".
 You can also running parallell tests, to this you must change the parameter thread-count, on testng.xlm
+
+The browser configured was Google Chrome, but you can change the browser, just change the parameter of the Properties class, located in the core package.
+Make sure that you have the driver for the selected browser.
+
+After the test execution, are create screenshots files, to evidence the result. 
+They are stored at folder called screenshots.
 
 ### Purpose of the tests
 
