@@ -103,7 +103,7 @@ You just must execute the test classes.
 
 ## Versioning
 
-WAas used [Sourcetree](https://www.sourcetreeapp.com//) for versioning. 
+Was used [Sourcetree](https://www.sourcetreeapp.com//) for versioning. 
 
 ## Authors
 
